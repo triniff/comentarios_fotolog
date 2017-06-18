@@ -1,11 +1,11 @@
 function guardarInfo(){
-	sessionStorage.nombre = document.getElementById("nombre").value;
-	sessionStorage.comentario = document.getElementById("valor").value;
+	var nombre = document.getElementById("nombre").value;
+	var comentario = document.getElementById("valor").value;
+	sessionStorage.setItem(nombre,comentario);
 
 	if ((sessionStorage.nombre != "") && (sessionStorage.comentario != "")) {
 		for (var i = 0; i < sessionStorage.length; i++) {
-		var nombre = sessionStorage.key(i);
-		var comentario = sessionStorage.key(i);
+		nombre = sessionStorage.key(i);
 		comentario = sessionStorage.getItem(nombre);
 		console.log(comentario);
 		var contenedor = document.createElement("div");
@@ -24,10 +24,11 @@ function guardarInfo(){
 
 		var section = document.getElementById("comentarios");
 
+		contenedor.appendChild(nombreUser);
 		contenedor.appendChild(comentarioUser);
-		contenedor.appendChild(nombreUser);	
-		}
 		section.appendChild(contenedor);
+
+		}
 	}else{
 			alert("nop");
 		}
