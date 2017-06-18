@@ -61,3 +61,9 @@ footer{
 
 /* Estilos comentarios */
 
+.error{
+  background-image: url(../img/error.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 25px;
+}

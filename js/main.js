@@ -3,7 +3,15 @@ function guardarInfo(){
 	var comentario = document.getElementById("valor").value;
 	sessionStorage.setItem(nombre,comentario);
 
-	if ((sessionStorage.nombre != "") && (sessionStorage.comentario != "")) {
+	if (nombre == "" || nombre.length == 0 || /^\s+$/.test(nombre)){
+		document.getElementById("nombre").classList.add("error");
+		}
+	if (comentario == "" || comentario.length == 0 || /^\s+$/.test(comentario)) {
+		document.getElementById("valor").classList.add("error");
+	}
+	else {
+		document.getElementById("nombre").classList.remove("error");
+		document.getElementById("valor").classList.remove("error");
 		for (var i = 0; i < sessionStorage.length; i++) {
 		nombre = sessionStorage.key(i);
 		comentario = sessionStorage.getItem(nombre);
@@ -22,16 +30,13 @@ function guardarInfo(){
 
 		var section = document.getElementById("comentarios");
 
-		contenedor.appendChild(nombreUser);
-		contenedor.appendChild(comentarioUser);
-		section.appendChild(contenedor);
-
 		document.getElementById("nombre").value = "";
 		document.getElementById("valor").value = "";
 		}
-	}else if ((sessionStorage.nombre == "") && (sessionStorage.comentario == "")){
-			alert("nop");
-		}
+		contenedor.appendChild(nombreUser);
+		contenedor.appendChild(comentarioUser);
+		section.appendChild(contenedor);
+	}
 
 }
 
@@ -39,7 +44,8 @@ var botonGuardar = document.getElementById("guardar");
 	botonGuardar.addEventListener("click", guardarInfo);
 
 var botonLimpiar = document.getElementById("limpiar");
-	botonLimpiar.addEventListener("click", function(){
+	botonLimpiar.addEventListener("click", function(event){
+		event.preventDefault();
 		sessionStorage.clear();
         window.location = window.location; // refresh
 	})
