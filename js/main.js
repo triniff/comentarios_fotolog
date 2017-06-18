@@ -7,13 +7,11 @@ function guardarInfo(){
 		for (var i = 0; i < sessionStorage.length; i++) {
 		nombre = sessionStorage.key(i);
 		comentario = sessionStorage.getItem(nombre);
-		console.log(comentario);
 		var contenedor = document.createElement("div");
 		contenedor.classList.add("mostrar-comentario");
 
 		var nombreUser = document.createElement("p");
 			nombreUser.classList.add("nombre-user");
-			console.log(nombreUser);
 		var nombreValue = document.createTextNode(nombre);
 			nombreUser.appendChild(nombreValue);
 
@@ -28,20 +26,23 @@ function guardarInfo(){
 		contenedor.appendChild(comentarioUser);
 		section.appendChild(contenedor);
 
+		document.getElementById("nombre").value = "";
+		document.getElementById("valor").value = "";
 		}
-	}else{
+	}else if ((sessionStorage.nombre == "") && (sessionStorage.comentario == "")){
 			alert("nop");
 		}
 
 }
 
+var botonGuardar = document.getElementById("guardar");
+	botonGuardar.addEventListener("click", guardarInfo);
+
 var botonLimpiar = document.getElementById("limpiar");
 	botonLimpiar.addEventListener("click", function(){
 		sessionStorage.clear();
+        window.location = window.location; // refresh
 	})
-
-var botonGuardar = document.getElementById("guardar");
-	botonGuardar.addEventListener("click", guardarInfo);
 /*
 function imprimirComentario(){
 	var contenedor = document.createElement("div");
