@@ -34,7 +34,9 @@ textarea, input{
   border: 1px solid DeepPink;
   margin-bottom: 20px;
 }
-
+.formulario h3{
+  color: #757575;
+}
 .posteo {
   color: DeepPink;
 }
@@ -54,16 +56,37 @@ textarea, input{
   color: red;
 }
 footer{
+  margin-top: 100px;
   padding: 10px;
+  background-color: #BDBDBD;
+}
+footer p{
+  color: #fff;
+  margin: 0;
 }
 
 
-
 /* Estilos comentarios */
-
+.mostrar-comentario{
+  padding: 20px;
+  border-bottom: 1px solid #BDBDBD;
+}
+.mostrar-comentario:last-child{
+  border: none;
+}
 .error{
   background-image: url(../img/error.png);
   background-repeat: no-repeat;
   background-position: right;
   background-size: 25px;
+}
+.btn-fotolog{
+  display: inline-block;
+  background-color: DeepPink;
+  border: none;
+  padding: 15px;
+  margin-bottom: 50px;
+}
+.btn-fotolog:hover{
+  background-color: #BDBDBD;
 }

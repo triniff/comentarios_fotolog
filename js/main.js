@@ -13,31 +13,31 @@ function guardarInfo(){
 		document.getElementById("nombre").classList.remove("error");
 		document.getElementById("valor").classList.remove("error");
 		for (var i = 0; i < sessionStorage.length; i++) {
-		nombre = sessionStorage.key(i);
-		comentario = sessionStorage.getItem(nombre);
-		var contenedor = document.createElement("div");
-		contenedor.classList.add("mostrar-comentario");
+			nombre = sessionStorage.key(i);
+			comentario = sessionStorage.getItem(nombre);
+			var contenedor = document.createElement("div");
+			contenedor.classList.add("mostrar-comentario","col-md-offset-3", "col-md-6");
 
-		var nombreUser = document.createElement("p");
-			nombreUser.classList.add("nombre-user");
-		var nombreValue = document.createTextNode(nombre);
-			nombreUser.appendChild(nombreValue);
+			var nombreUser = document.createElement("p");
+				nombreUser.classList.add("nombre-user");
+			var nombreValue = document.createTextNode(nombre);
+				nombreUser.appendChild(nombreValue);
 
-		var comentarioUser = document.createElement("h5");
-			comentarioUser.classList.add("comentario-user");
-		var comentarioValue = document.createTextNode(comentario);
-			comentarioUser.appendChild(comentarioValue);
+			var comentarioUser = document.createElement("h5");
+				comentarioUser.classList.add("comentario-user");
+			var comentarioValue = document.createTextNode(comentario);
+				comentarioUser.appendChild(comentarioValue);
 
-		var section = document.getElementById("comentarios");
+			var section = document.getElementById("comentarios");
 
-		document.getElementById("nombre").value = "";
-		document.getElementById("valor").value = "";
+			contenedor.appendChild(nombreUser);
+			contenedor.appendChild(comentarioUser);
+			section.appendChild(contenedor);
 		}
-		contenedor.appendChild(nombreUser);
-		contenedor.appendChild(comentarioUser);
-		section.appendChild(contenedor);
-	}
 
+	}
+	document.getElementById("nombre").value = "";
+	document.getElementById("valor").value = "";
 }
 
 var botonGuardar = document.getElementById("guardar");
